@@ -20,6 +20,7 @@
  *    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
  */
 
+#import <Foundation/Foundation.h>
 #import "ezusb.h"
 
 /*
@@ -126,7 +127,7 @@ static inline int ctrl_msg(IOUSBDeviceInterface** dev, const UInt8 requestType,
 {
     if(length > USHRT_MAX)
     {
-        NSLog(@"length (%d) too big (max = %d)", length, USHRT_MAX);
+        NSLog(@"length (%zu) too big (max = %d)", length, USHRT_MAX);
         return -EINVAL;
     }
     
@@ -458,7 +459,7 @@ int ezusb_load_eeprom (IOUSBDeviceInterface** dev, NSString* hexfilePath,
     }
     else
     {
-        NSLog(@"?? Unrecognized microcontroller type %@ ??", partType);
+        NSLog(@"?? Unrecognized microcontroller type %u ??", partType);
         return -1;
     }
 
@@ -611,7 +612,7 @@ int parse_ihex (FILE* image,
         /* Read the target offset (address up to 64KB) */
         tmp = buf[7];
         buf[7] = 0;
-        off = strtoul(buf+3, 0, 16);
+        off = (unsigned int)strtoul(buf+3, 0, 16);
         buf[7] = tmp;
 
    /* Initialize data_addr */

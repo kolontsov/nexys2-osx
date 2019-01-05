@@ -71,7 +71,7 @@ static int findDevice(IOUSBDeviceInterface*** dev, NSNumber* vid, NSNumber* pid)
     if(usbDeviceRef == 0)
     {
         NSLog(@"Couldn't find USB device with %x:%x",
-            [vid unsignedIntegerValue], [pid unsignedIntegerValue]);
+            [vid unsignedIntValue], [pid unsignedIntValue]);
         rc = -1;
     }
     
@@ -288,7 +288,7 @@ int main (int argc, char * argv[]) {
         }
         
         NSString* partTypeStr = [args valueForKey:kArgPartType];
-        part_type partType = _undef;
+        part_type partType = ptUNDEF;
         if([partTypeStr isEqualToString:@"an21"])
         {
             partType = ptAN21;
