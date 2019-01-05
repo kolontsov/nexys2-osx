@@ -1,0 +1,8 @@
+name: fxload
+targets:
+  fxload:
+    type: tool
+    platform: macOS
+    sources:
+      - path: .
+        compilerFlags: "-fno-objc-arc"
