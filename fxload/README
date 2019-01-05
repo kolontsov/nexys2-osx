@@ -1,3 +1,11 @@
 This is a port of the fxload module from the linux-hotplug project
 (http://linux-hotplug.sf.net) to Mac OSX. Instead of libusb it uses
 native OSX USB primatives.
+
+To build and [optionally] install to /usr/local/bin:
+
+1. brew install xcodegen
+2. make
+3. make install
+
+Successfuly tested on macOS 10.14.
