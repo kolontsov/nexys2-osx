@@ -1,3 +1,4 @@
 This is an umbrella repository for ports of the tools required to program
 the Digilent Nexys2 board under Mac OSX
 
+This fork is created to update build process for latest OS X and prepare [Homebrew formula](https://github.com/kolontsov/homebrew-fxload) for fxload.
